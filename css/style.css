@@ -8,8 +8,18 @@ body {
 
 /* === Circles === */
 
-#wrapBeigeCircle1 {
-    background: #FFE7BF;
-    height: 50vh;
-    width: 50vw;
+#wrapBgCircles {       
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+}
+
+#imageCirclesBG {
+    min-height: 120vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    
 }
