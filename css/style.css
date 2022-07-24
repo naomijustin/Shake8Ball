@@ -1,5 +1,15 @@
-/* ==== General ==== */
+/* === General === */
 
 body {
     background-color: #A10035;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* === Circles === */
+
+#wrapBeigeCircle1 {
+    background: #FFE7BF;
+    height: 50vh;
+    width: 50vw;
 }
