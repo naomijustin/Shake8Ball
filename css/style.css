@@ -9,8 +9,6 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;    
 }
-
-
 /* === Circles === */
 
 #wrapBgCircles {       
@@ -28,3 +26,23 @@ body {
     position: absolute;
     
 }
+/* Toast - Disclaimer */
+#divWrapToastTip {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+}
+
+/* Toast - Help */
+#divWrapToastHowTo {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 20px;
+}
+
+#toastInfoIcon:hover {
+    opacity: 1;
+}
+
+
+/* ==== Created by Naomi Justin ==== */
