@@ -9,7 +9,7 @@ function initPageContent() {
         if (!firstShakeCompleted) {
             showHowToToast();
         }        
-    }, 6500);
+    }, 8000);
 
     // === Toast Help ===
     $('#toastHelpIcon').click(function(){
