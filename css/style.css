@@ -1,10 +1,15 @@
+/* ==== Created by Naomi Justin ==== */
+
 /* === General === */
 
 body {
     background-color: #A10035;
     margin: 0px;
-    padding: 0px;
+    padding: 0px;    
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;    
 }
+
 
 /* === Circles === */
 
