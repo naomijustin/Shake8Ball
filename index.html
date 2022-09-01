@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Shake 8 Ball</title>
+    <title>Shake the 8 Ball | shake8ball.com</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     
     <meta name="author" content="Naomi Justin">
@@ -20,6 +20,12 @@
     <title>Shake the 8 Ball | shake8ball.com</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    
+
+
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">
 
@@ -31,12 +37,85 @@
     <script src="../js/script.js"></script>
 
 </head>
+<script>
+    $(document).ready(function(){
+        var currentYear = new Date().getFullYear();
+        $('html').prepend('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
+        $('html').append('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
+        $('#modalCopyright').text('Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved.')
+    });    
+</script>
 <body>
     <div id="wrap8BallContent">
         <div id="wrapBgCircles">            
             <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg">                        
         </div>
     </div>
-    
+    <!-- Disclaimer Toast -->
+    <div id="divWrapToastTip" style="position: absolute; z-index: 30;">
+        <div id="toastTipPrompt" class="toast align-items-center text-dark border-0 p-2" style="background-color: #FFFFFF; border-radius: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+              <div class="toast-body">
+               <b>Consent</b><br />              
+               By using our website, you hereby consent to our disclaimer and agree to its terms, which can be viewed <span data-bs-toggle="modal" data-bs-target="#modalDisclaimer" style="color: #A10035; cursor: pointer;">here</span>
+              </div>
+              <button type="button" class="btn-close btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>    
+    </div>
+    <!-- How To Toast -->
+    <div id="divWrapToastHowTo" style="position: absolute; z-index: 30;">
+        <div id="toastHowToPrompt" class="toast align-items-center text-dark border-0 p-2" style="background-color: #FFFFFF; border-radius: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                <b>How To Play</b><br />              
+                Not sure where to start? Click <span data-bs-toggle="modal" data-bs-target="#modalHowTo" style="color: #A10035; cursor: pointer;">here</span> for the guide!
+                </div>
+                <button type="button" class="btn-close btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>    
+    </div>
+    <!-- Modal of disclaimer -->
+    <div id="modalDisclaimer" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Disclaimer for Shake8Ball.com</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p><small class="text-muted"><i>Last Updated: 23 August 2022</i></small></p>
+                <p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at hello@shake8ball.com. Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/" style="text-decoration: none;">Free Disclaimer Generator</a>.</p>                
+                <h5>Disclaimers for Shake 8 Ball</h5>                                
+                <p>All the information on this website - Shake8Ball.com - is published in good faith and for general information purposes only. Shake 8 Ball does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (Shake 8 Ball), is strictly at your own risk. Shake 8 Ball will not be liable for any losses and/or damages in connection with the use of our website.</p>                
+                <p>From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites. Site owners and content may change without notice and may occur before we have the opportunity to remove a link which may have gone 'bad'.</p>                
+                <p>Please be also aware that when you leave our website, other sites may have different privacy policies and terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well as their "Terms of Service" before engaging in any business or uploading any information.</p>                
+                <p>This web site is not endorsed by, directly affiliated with, maintained, authorised, or sponsored by any other companies. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.</p>                
+                <p>This web site simulates the "Magic Eight Ball" toy, a registered trademark of Mattel Inc. The "Magic Eight Ball" trademark and various 8 Ball answers are used without permission of Mattel Inc. Mattel Inc. is neither affiliated with this site, nor with authors of this site.</p>                
+                <h5>Copyright</h5>
+                <p id="modalCopyright"></p>
+                <h5>Consent</h5>                
+                <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>                
+                <h5>Update</h5>
+                <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>                
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal of How To -->
+    <div id="modalHowTo" class="modal" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">How To Guide</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Info               
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
 </html>
