@@ -1,0 +1,48 @@
+<!-- Menu Icon -->
+
+<div id="menuNavIcon" data-bs-toggle="offcanvas" href="#offcanvasNavigation" role="button" aria-controls="offcanvasNavigation" class="position-fixed" style="color: #FFFFFF; z-index: 11; opacity: 0.7; cursor: pointer; padding: 10px;">
+  <img src="../images/menu_icon_white.svg" alt="Menu" title="Menu" style="max-width: 5vh; max-height: 5vh;">
+</div>
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavigation" aria-labelledby="offcanvasNavigation">
+    <div class="offcanvas-header">      
+      <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body row">
+      <div class="d-grid gap-3 col-12 d-flex flex-column">
+        <a class="btn btn-primary d-flex justify-content-center" href="../" target="_self"><span style="align-self: center">Shake the 8 Ball</span></a>
+        <a class="btn btn-primary d-flex justify-content-center" href="../about.html" target="_self"><span style="align-self: center">About</span></a>
+        <a class="btn btn-primary d-flex justify-content-center" href="../contact.html" target="_self"><span style="align-self: center">Contact</span></a>
+        <a class="btn btn-primary d-flex justify-content-center" data-bs-toggle="collapse" data-bs-target="#collapseTutorialList" role="button" aria-expanded="false" aria-controls="collapseTutorialList"><span style="align-self: center">How I built the 8 ball</span></a>                
+        <div class="collapse" id="collapseTutorialList">          
+            <a class="subNavItem d-flex" href="../tutorials/introduction.html" target="_self">Introduction</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-1.html" target="_self">1: The Idea</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-2.html" target="_self">2: Building the background</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-3.html" target="_self">3: Adding more images</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-4.html" target="_self">4: Text and Dropshadow</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-5.html" target="_self">5: Add Cloud and Animate</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-6.html" target="_self">6: Rotate the 8 ball while following the mouse</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-7.html" target="_self">7: Shake animation of 8 ball</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-8.html" target="_self">8: Creating the back face of the 8 ball</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-9.html" target="_self">9: Transition animation from front to back face</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-10.html" target="_self">10: Choosing and displaying the result text</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-11.html" target="_self">11: Implementing the second ball shake</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-12.html" target="_self">12: Creating and animating bubbles</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-13.html" target="_self">13: Toast and modal for 'How To' & 'Disclaimer'</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-14.html" target="_self">14: Loading View</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-15.html" target="_self">15: Navigation</a>
+            <a class="subNavItem d-flex" href="../tutorials/tutorial-16.html" target="_self">16: Creating the contact page</a>
+      </div>      
+      
+      </div>
+
+      <div class="align-self-end text-center pt-4" style="color: #ED839D">        
+        <div><a href="../info/terms.html" style="color: #ED839D">Terms & Conditions</a>&emsp;|&emsp;<a href="../info/privacy.html" style="color: #ED839D">Privacy</a></div>
+        <div>&#169; Naomi Justin <span id="spanYearCopyright"></span>. All rights reserved.</div>   
+      </div>                
+    </div>
+</div>
+<script>
+  const d = new Date();
+  let year = d.getFullYear();
+  $('#spanYearCopyright').text(year);
+</script>
