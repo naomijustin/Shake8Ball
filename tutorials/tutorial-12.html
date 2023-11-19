@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">12: Creating and animating bubbles</h1>                                                                                            
+                        <div>
+                            <p>Now there is one more thing I wanted to include to add to that nostalgia of the Magic 8 Ball that you would shake vigorously as a kid.</p>
+                            <p>Whenever I shook anyones 8 Ball, I always noticed a bunch of bubbles, usually covering the text and going in random directions.</p>
+                            <h2>Creating the bubble image</h2>
+                            <p>So to add bubbles into this 8 ball, I first created a single bubble in Figma and exported it as an SVG as I would be resizing it once inside the site.</p>
+                            <p>I then added the bubble 3 times into the page, again centering them with the CSS as the other images (see <a href="../tutorials/tutorial-2.html" target="_blank" style="text-decoration: none;">Tutorial 2</a>).</p>                                                    
+                            <h2>Setting the scale</h2>                          
+                            <p>For these bubbles, I then set slightly different sizes for each added so that there was some variation to the bubbles.</p>
+                            <pre>
+                                <code class="language-css">
+    #image8BallBubble1{
+        z-index: 7;
+        max-height: 3vh;
+        position: relative;
+        }
+        #image8BallBubble2  {
+        z-index: 7;
+        max-height: 2.5vh;
+        position: relative;
+        }
+        #image8BallBubble3 {
+        z-index: 7;
+        max-height: 2vh;
+        position: relative;
+        }</code>
+                            </pre>
+                            <h2>Randomising the position</h2>
+                            <p>I then created a function that set a minimum and maximum x and y constraints that the bubbles could travel within, and got a random x and y coordinate within this range.</p>
+                            <pre>
+                                <code class="language-css">
+    function calcBubbleCoordinates(){
+        bMinX = 0;
+        bMaxX = bMinX + $('#divWrapimage8BallResult').width();
+    
+        bMinY = 0;
+        bMaxY = bMinY + $('#divWrapimage8BallResult').height();
+    
+        var x = getRandomInt(bMinX, bMaxX);
+        var y = getRandomInt(bMinY, bMaxY);
+        
+        return {x, y};
+    }</code>
+                            </pre>
+                            <h2>Creating the bubble travel</h2>
+                            <p>Then within the fadeInResult() function, I got a random location for the each bubble to travel to when the results started to fade in.</p>
+                            <pre>
+                                <code class="language-css">
+    var bubble1XY = calcBubbleCoordinates();
+    var bubble2XY = calcBubbleCoordinates();
+    var bubble3XY = calcBubbleCoordinates();
+    $('#image8BallBubble1').css('left', bubble1XY.x + 'px');
+    $('#image8BallBubble1').css('top', bubble1XY.y + 'px');
+
+    $('#image8BallBubble2').css('left', bubble2XY.x + 'px');
+    $('#image8BallBubble2').css('top', bubble2XY.y + 'px');
+
+    $('#image8BallBubble3').css('left', bubble3XY.x + 'px');
+    $('#image8BallBubble3').css('top', bubble3XY.y + 'px');</code>
+                            </pre>
+                            <p>I then created a fade in CSS animation, the purpose being to add each bubble when the result faded in.</p>
+                            <pre>
+                                <code class="language-css">
+    .bubble1FadeIn {
+        animation: bubble1FadeIn 3s;
+        animation-iteration-count: infinite;
+        transition-timing-function: ease-in-out;
+        }
+        
+        @keyframes bubble1FadeIn {
+        0% { opacity: 0; transform: translate(0px, 0px)}
+        100% { opacity: 1; transform: translate(30px, 50px)}
+        }</code>
+                            </pre>
+                            <p>Within the fadeInResult() function, I first added the bubble fade in class to each so they would start to fade in.</p>
+                            <p>I then set a css transform: translate to 3 different directions for set pixels so that the bubbles would move in different directions from their initial random location. Then once the animation completed, I set the opacity to 1 so that they would stay visible and removed the bubble fade in class.</p>
+                            <pre>
+                                <code class="language-css">
+    $('#image8BallBubble1').addClass('bubble1FadeIn');
+    $('#image8BallBubble2').addClass('bubble2FadeIn');
+    $('#image8BallBubble3').addClass('bubble3FadeIn');
+    setTimeout(function(){
+        $('#image8BallBlueTriangle, #htmlResultText').css('opacity', '1');
+        $('#image8BallBlueTriangle, #htmlResultText').removeClass('fadeInTri');
+    }, 2500);
+    setTimeout(function(){
+        $('#image8BallBubble1').css('transform', 'translate(30px, 50px)');           
+        $('#image8BallBubble2').css('transform', 'translate(-30px, -25px)');
+        $('#image8BallBubble3').css('transform', 'translate(-20px, 40px)');
+        $('#image8BallBubble1, #image8BallBubble2, #image8BallBubble3').css('opacity', '1');
+
+        $('#image8BallBubble1').removeClass('bubble1FadeIn');
+        $('#image8BallBubble2').removeClass('bubble2FadeIn');
+        $('#image8BallBubble3').removeClass('bubble3FadeIn');           
+    }, 3000);</code>
+                            </pre>
+                            <p>Finally for the fade out result, I added the existing fadeOutTri class to the bubbles to fade out at the same time.</p>
+                            <p>This then resulted in the below:</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article12/Article12-1_AddBubbles.gif" alt="Animated image of 8 ball showing result with bubbles moving">
+                            </figure>
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to last step</button>
+                                </div>                                        
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>
+                            </div>                                                        
+                        </div>                        
+                    </article>
+                </div>                
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-12.js?v=20221205"></script>
+</html>

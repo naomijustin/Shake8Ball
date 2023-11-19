@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- About Container -->        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">Retro fun for the web</h1>
+                        <div>
+                            <p>Inspired by the Mattel's original Magic 8 Ball, Shake 8 Ball brings the nostalgic toy to life with a modern spin.</p>                    
+                            <p>Shake 8 Ball was built as a retro toy to relive the days of bringing out the 8 ball in your group of friends and shaking to ask questions about what you'd be when you grow up, if your crush liked you back, or if your parents would let you go to that sleepover on Saturday.</p>
+                            <p>Like the original Magic 8 Ball, Shake 8 Ball has a set of prewritten answers that are displayed at random each time you shake the 8 ball. The set includes 10 positive answers, 5 neutral answers and 5 negative answers.</p>
+                            <p><i>Shake 8 ball does <b>not</b> have fortune-telling abilities and its purpose is to only be used as a toy or game.</i></p>
+                            <p>Play on the go or share with your friends the classic toy that gripped the world! Shake the 8 ball now!</p>
+                            <div class="my-3 d-grid">
+                                <button type="button" id="btnHome" class="btn btn-primary">Shake the 8 Ball</button>
+                            </div>
+                            <div class="text-center">
+                                <small class="pt-2 text-muted">Learn more about the original Mattel Magic 8 Ball <a href="https://en.wikipedia.org/wiki/Magic_8_Ball" target="_blank" class="text-decoration-none">here</a></small>
+                            </div>                            
+                        </div>                        
+                    </article>
+                </div>            
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/about.js"></script>
+</html>

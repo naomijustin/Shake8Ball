@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">11: Implementing the second ball shake</h1>                                                                                            
+                        <div>
+                            <p>Now that we have one full shake, rotating from front to back and result, the next thing to do is create a shake animation for any clicks after the first.</p>
+                            <p>If you remember from Step 8 in the 'Implementing the functions' section, we set the variable firstShakeCompleted = true; after the first shake was complete. Now because of this, we can create a condition for whether we need to run the first or second shake depending on whether this variable is true or false.</p>
+                            <p>So to start, we'll need to again create a shake animation, but this time it will be for the back face of the magic 8 ball, rather than the front.</p>
+                            <p>However, because we already created a class that contains the CSS keyframes of the shake animation for the front face, we can actually reuse the same class for the back.</p>
+                            <h2>Creating second shake</h2>
+                            <p>On the click event of the 8 ball to shake, I set a condition to first check if the first shake had completed, and if true, to instead add the shake class the back face elements instead of the front.</p>
+                            <pre>
+                                <code class="language-css">
+    else if (firstShakeCompleted) {
+        fadeOutResult();
+        setTimeout(function(){
+            $('#image8BallDarkBase, #image8BallShine, #image8BallDarkInnerCircle').addClass('shakeBall');           
+            setTimeout(function(){
+                $('#image8BallDarkBase, #image8BallShine, #image8BallDarkInnerCircle').removeClass('shakeBall'); 
+                fadeInResult();
+                setTimeout(function(){
+                    clickDisabled = false;
+                    $('#wrap8Ball').css('cursor', 'pointer');
+                }, 3000);                                     
+            }, 1500);   
+        }, 500);
+    }</code>
+                            </pre>
+                            <p>In the above I also created and referenced the function 'fadeOutResult', to fade the text to 0% opacity before shaking to create a smooth transition between the results.</p>
+                            <pre>
+                                <code class="language-css">
+    function fadeOutResult(){
+        $('#image8BallBlueTriangle, #image8BallBubble1, #image8BallBubble2, #image8BallBubble3, #htmlResultText').addClass('fadeOutTri');
+        setTimeout(function(){
+            $('#image8BallBlueTriangle, #image8BallBubble1, #image8BallBubble2, #image8BallBubble3, #htmlResultText').css('opacity', '0');
+            $('#image8BallBlueTriangle, #image8BallBubble1, #image8BallBubble2, #image8BallBubble3, #htmlResultText').removeClass('fadeOutTri');
+        }, 500);
+    }</code>
+                            </pre>
+                            <p>This is the result so far:</p>                    
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article11/Article11-1_SecondShake.gif" alt="Animated image of 8 ball shaking, rotating, and then displaying result answer and then shaking again">
+                            </figure>
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to last step</button>
+                                </div>                                        
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>
+                            </div>                                                        
+                        </div>                        
+                    </article>
+                </div>                
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-11.js?v=20221204"></script>
+</html>

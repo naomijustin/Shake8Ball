@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">3: Adding more images</h1>
+                        <div>
+                            <p>Now that we have the background scaled correctly and responsive, we can now start adding more images such as the 8 ball layers.</p>                    
+                            <p>My goal was to be able to have the white circle of the 8 ball rotate and follow the user's mouse when moving around but to not go too far out of the dark circle to not lose the immersion of this effect.</p>
+                            <h2>Creating the layers</h2>
+                            <p>Before we can consider the functionality of how this can be done, we first need to set up the layers correctly to allow this to be done later.</p>
+                            <p>To do this, I created 3 separate layers for the ball:</p>
+                            <ol>
+                                <li>The 8 ball base</li>
+                                <li>The white circle with the 8 inside</li>
+                                <li>The shine of the 8 ball</li>
+                            </ol>
+                            <p>The “8 ball base” purpose is to be the base of the ball itself and be in a fixed position.</p>
+                            <p>The “white circle with the 8 inside” purpose is to follow the mouse cursor around to create the illusion that the ball is rotating and following the mouse.</p>
+                            <p>Finally, the “shine of the 8 ball” purpose is to be a fixed semi transparent layer on top of both of these to contribute to the illusion of a 3D object. On the movement of the white circle, the white circle and 8 will travel underneath this layer to create a shine over the top.</p>
+                            <h2>Centering the images</h2>
+                            <p>These were all centered using the same CSS as the background (see <a href="../tutorials/tutorial-2.html" target="_blank" style="text-decoration: none;">Tutorial 2</a>).</p>                            
+                            <p>This then resulted in below images centered in line with the background:</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article3/Article3-1_8BallImageAdded.png" alt="Image of 8 ball centered with background">
+                            </figure>
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to last step</button>
+                                </div>                                        
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>
+                            </div>                                                        
+                        </div>                        
+                    </article>
+                </div>                
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-3.js?v=20221130"></script>
+</html>

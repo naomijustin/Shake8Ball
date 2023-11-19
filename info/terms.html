@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">Terms and Conditions</h1>
+                        <div>                              
+                            <h2>Disclaimers for Shake 8 Ball</h1>                                
+                            <p>All the information on this website - Shake8Ball.com - is published in good faith and for general information purposes only. Shake 8 Ball does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (Shake 8 Ball), is strictly at your own risk. Shake 8 Ball will not be liable for any losses and/or damages in connection with the use of our website.</p>                
+                            <p>From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites. Site owners and content may change without notice and may occur before we have the opportunity to remove a link which may have gone 'bad'.</p>                
+                            <p>Please be also aware that when you leave our website, other sites may have different privacy policies and terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well as their "Terms of Service" before engaging in any business or uploading any information.</p>                
+                            <p>We currently use third party services including Google Analytics and Adsterra who use cookies and other tracking technologies. You can find out more about these through <a href="https://support.google.com/analytics/answer/7318509?hl=en" target="_blank" style="text-decoration: none; color: #A22A36;">Google's support articles</a> and <a href="https://adsterra.com/cookies/" target="_blank" style="text-decoration: none; color: #A22A36;">Adsterra's Cookie Policy</a> and <a href="https://adsterra.com/privacy-policy-managed/" target="_blank" style="text-decoration: none; color: #A22A36;">Privacy Policy</a>.</p>
+                            <p>This web site is not endorsed by, directly affiliated with, maintained, authorised, or sponsored by any other companies. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.</p>                
+                            <p>This web site simulates the "Magic Eight Ball" toy, a registered trademark of Mattel Inc. The "Magic Eight Ball" trademark and various 8 Ball answers are used without permission of Mattel Inc. Mattel Inc. is neither affiliated with this site, nor with authors of this site.</p>                                            
+                            <h2>Consent</h2>
+                            <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>                                                    
+                            <h2>Update</h2>
+                            <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
+                            <p>Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/" style="text-decoration: none; color: #A10035;">Free Disclaimer Generator</a>.</p>                
+                            <h1>Contact Us</h1>                            
+                            <p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us:</p>
+                            <ul>
+                                <li>
+                                    <p class="py-2 my-0">By email: <a href="mailto: hello@shake8ball.com" style="text-decoration: none; color: #A10035;">hello@shake8ball.com</a></p>
+                                </li>
+                                <li>
+                                    <p class="py-2 my-0">By visiting the <a href="../contact.html" rel="external nofollow noopener" target="_blank" style="text-decoration: none; color: #A10035;">Contact</a> page on our website.</p>
+                                </li>
+                            </ul>                        
+                            <div class="my-3 d-grid">
+                                <button type="button" id="btnHome" class="btn btn-primary">Shake the 8 Ball</button>
+                            </div>
+                            <div class="text-center">
+                                <small class="pt-2 text-muted">Last updated 30 December 2022</small>
+                            </div>                          
+                        </div>                        
+                    </article>
+                </div>            
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/info/terms.js?v=20221228"></script>
+</html>

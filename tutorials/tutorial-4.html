@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">4: Text and Dropshadow</h1>
+                        <div>
+                            <p>Next is to add the circular text around the 8 ball. There are a few different methods that could be used to achieve this, one being to create a circular path and for the text to follow this path, however due to the additional drop shadow colour to consider, I decided to create a circular image in Figma instead and then resize the image to the viewport accordingly.</p>                    
+                            <h2>Creating the text</h2>
+                            <p>I added the text and font that I wanted into the Figma project, and then used the Figma 'To Path' plugin to create the curved text that would wrap around the 8 ball.</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article4/Article4-1_CurvedTextCreation.gif" alt="Image of text being curved using the To Path Figma Plugin">
+                            </figure>
+                            <p>I then duplicated the curved text, changed the colour to the drop shadow colour and put it behind the first to create the drop shadow curved text.</p>
+                            <p>I then grouped these with some transparent space to compensate for the centering (as it would be sitting above the 8 ball, rather than centered with the 8 ball). I exported these as a single SVG image so that they could be infinitely scaled without resolution loss and added it to the site.</p>
+                            <h2>Adding the text</h2>
+                            <p>I then centered it, again using the same CSS as previously used with the other images (see <a href="../tutorials/tutorial-2.html" target="_blank" style="text-decoration: none;">Tutorial 2</a>).</p>                            
+                            <p>I then added an addition just for the text to scale larger than the 8 Ball so that it would be positioned vertically above on the page, and to also make sure that the text would also be a layer above the 8 ball so the text would not be covered if there was an issue on a smaller device.</p>
+                            <pre>
+                                <code class="language-css">
+    <span class="light-blue-font">z-index</span><span class="white-font">:</span> <span class="light-green-font">7</span><span class="white-font">;</span>   
+    <span class="light-blue-font">max-height</span><span class="white-font">:</span> <span class="light-green-font">87vh</span><span class="white-font">;</span></code>
+                            </pre>
+                            <p>This resulted in the text positioned above the 8 Ball and wrapping around in an arc.</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article4/Article4-2_CurvedTextAdded.png" alt="Image of curved text around 8 ball">
+                            </figure>
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to last step</button>
+                                </div>                                        
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>
+                            </div>                                                        
+                        </div>                        
+                    </article>
+                </div>                            
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-4.js?v=20221201"></script>
+</html>

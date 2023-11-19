@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">15: Navigation</h1>                                                                                            
+                        <div>
+                            <p>Now that the index page was complete from the initial load, the toasts for the disclaimer and help, modals to go with the toasts and accessibility icons to allow these toasts and modals to be accessed at a later time once they initially were hidden after the first load, it was time to move onto the navigation menu.</p>
+                            <p>For this, again, I did not want to take away from the existing aesthetic and look of the page, so it was vital to add a navigation that had a very small icon that was still easily accessible to the user.</p>
+                            <p>For this, I felt that the perfect solution would be creating and adding a hamburger icon that would then overlay a menu over the top of the existing page that the user was currently on.</p>
+                            <h2>Creating the icon</h2>
+                            <p>To keep in line with the existing icons to create a coherent set and to allow consistency throughout the site, I went back to the Google Font Icons and found a clean Hamburger Menu icon that could be exported as a vector icon.</p>
+                            <p>I exported this icon as an SVG and added it to Figma, changing the colour of the icon to match the existing Info and Help icon on the index page.</p>
+                            <p>Once this colour was changed, I resized the icon and exported it again as an SVG to preserve its vector qualities.</p>
+                            <p>The next step was to create a reusable solution for the navigation that did not need to be maintained across multiple pages but rather be updated from the one location, to firstly make the navigation easy to maintain but to also avoid inconsistencies across each page.</p>
+                            <p>For this solution, I created an HTML asset that could be loaded in on each page into a dedicated div. This allowed only needing a single div to be written per page for the asset to be loaded into and allowed the one asset to be updated when there were any code changes needed.</p>
+                            <p>Within this newly created asset that could be loaded in, I added in the Hamburger Icon that was recently exported from Figma, and set the following inline positioning to the wrapper of the SVG icon so that there was no delay on the icon moving to its correct CSS position.</p>
+                            <pre>
+                                <code class="language-css">
+    style="top: 10px; left: 10px; color: #FFFFFF; z-index: 9; opacity: 0.7; cursor: pointer;"</code>
+                            </pre>
+                            <h2>Creating the navigation UI</h2>
+                            <p>Now that image was displaying in the correct location, the next thing to do was to create the navigation menu that would eventually be triggered by this Hamburger Icon.</p>
+                            <p>I looked into Bootstrap's library to find if there was something that could be used to achieve the toggling vertical navigation menu overlay. I was able to find that the Offcanvas component in the Bootstrap 5 library could be used to successfully implement this.</p>
+                            <p>I created the offcanvas component in the loadable navigation asset and then was able to trigger the show and hide functionality via clicking on the hamburger icon.</p>
+                            <pre>
+                                <code class="language-css">
+    data-bs-toggle="offcanvas" href="#offcanvasNavigation" role="button"</code>
+                            </pre>
+                            <p>I then added vertical buttons to the navigation menu using the existing colour palette, and then created a hover effect that would allow a drop shadow to appear on hover of any of the menu buttons.</p>
+                            <figure class="text-center">
+                                <img class="tutorialImage" src="../images/tutorials/article15/Article15-1_NavHover.gif" alt=" Animated image of hovering over different buttons in the navigation menu">
+                            </figure>
+                            <p>Finally, before moving onto any other pages, the key was to make sure that the navigation asset loaded in correctly to each page. We can now utilise the div that was created earlier as a placeholder for this navigation to load into.</p>
+                            <p>In the JavaScript file of each page, I included the below in the document ready function.</p>
+                            <pre>
+                                <code class="language-css">
+    $('#navPlaceholder').load('assets/navigation.html');</code>
+                            </pre>
+                            <p>This successfully loaded the navigation into the page and allowed the functionality to work correctly.</p>
+                            <p>The next thing was to link the buttons to the pages that were existing.</p>
+                            <p>Usually when linking, we can go straight to the page such as in the below.</p>
+                            <pre>
+                                <code class="language-css">
+    href="../contact.html"</code>
+                            </pre>
+                            <p>However, because we only have the index page currently existing, if we were to link to the index page in this way, we would be taken to 'example.com/<b>index.html</b>' which would then show the name of the index page rather than representing the root page of the site in the URL.</p>
+                            <p>Due to this not being ideal, I was able to instead link the button to the below.</p>
+                            <pre>
+                                <code class="language-css">
+    href="../"</code>
+                            </pre>
+                            <p>This then allowed redirection to instead take as to 'example.com' which is a much better display in the URL. Also, I wanted to make sure that the current page that the user was on would redirect, rather than opening in a new tab. This was able to be achieved with the below.</p>
+                            <pre>
+                                <code class="language-css">
+    href="../" target="_self"</code>
+                            </pre>                            
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to last step</button>
+                                </div>
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>                                                                        
+                            </div>                                                        
+                        </div>                        
+                    </article>
+                </div>                            
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-15.js?v=20221211"></script>
+</html>

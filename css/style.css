@@ -1,7 +1,6 @@
 /* ==== Created by Naomi Justin ==== */
 
 /* === General === */
-
 body {
     background-color: #A10035;
     margin: 0px;
@@ -9,28 +8,388 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;    
 }
+h1 {
+    color: #A22A36;
+    font-family: 'Shrikhand', cursive;
+    text-shadow: 3px 4px #ED839D;
+    padding: 30px 0px;
+    /* font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Shrikhand', cursive; */
+}
+h3 {
+    color: #A22A36;
+}
+html::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+html::-webkit-scrollbar-thumb {
+    /* background: #cc114f; */
+    background: #00000030;
+    border-radius: 16px;    
+}
+html::-webkit-scrollbar-track {
+    background-color: #A10035;
+}
+html::-webkit-scrollbar-corner {
+    background-color: #A10035;
+}
+.offcanvas-body::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+.offcanvas-body::-webkit-scrollbar-thumb {
+    background: #00000038;
+    border-radius: 16px;
+} 
+p {
+    padding: 10px 0px;
+}
 .pTip {
     background-color: #F2F2F2;
     padding: 20px;
     border-radius: 30px;
 }
-/* === Circles === */
+.bgFormWrapper {
+    width: 100vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    z-index: 2;
+    padding-bottom: 70px;    
+}
+.bgForm {    
+    min-width: 280px;
+    width: 60vw;
+    max-width: 450px;
+    border-radius: 30px;
+    height: max-content;
+    border: 3px solid #ED839D;
+    background-color: #FFC4C4;
+    box-shadow: 20px 20px #A22A36,
+                10px 20px #A22A36,
+                20px 10px #A22A36;
+    font-family: 'Poppins', sans-serif;            
+}
+.tutorialForm {
+    min-width: 280px;
+    width: 80vw;
+    max-width: 550px;
+    border-radius: 30px;
+    height: max-content;
+    border: 3px solid #ED839D;
+    background-color: #FFC4C4;
+    box-shadow: 20px 20px #A22A36,
+                10px 20px #A22A36,
+                20px 10px #A22A36;
+    font-family: 'Poppins', sans-serif;  
+}
+.form-control {
+    border: 0px;
+    border-radius: 11px;
+}
+#htmlResultText {
+    font-weight: 500;
+    color: #C9BBFF;
+}
+.tutorialImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+/* === Code Classes === */
+pre {
+    background: #1b1b1b;
+    border-radius: 10px;
+}
+code {
+    overflow-x: scroll;    
+}
+.language-css, .language-javascript {
+    color: #f5d67b;
+}
+.language-php {
+    color: #569BD5;
+}
+.light-blue-font {
+    color: #97D4F4;
+}
+.dark-blue-font {
+    color: #569BD5;
+}
+.white-font {
+    color: #FFFFFF;
+}
+.orange-font {
+    color: #C08871;
+}
+.light-green-font {
+    color: #ADC4A0;
+}
+.dark-green-font {
+    color: #618B4F;
+}
+.purple-font {
+    color: #AF78AA;
+}
+/* === Loading === */
+.loadingStar1 {
+    animation: load 0.8s;
+    animation-iteration-count: infinite;
+}
+@keyframes load {
+    0% {opacity: 100%;}
+    25% {opacity: 30%;}
+    100% {opacity: 100%;}
+}
+.loadingStar2 {
+    animation: load 0.8s;
+    animation-iteration-count: infinite;
+    animation-delay: 300ms;
+}
+@keyframes load {
+    0% {opacity: 100%;}
+    25% {opacity: 30%;}
+    100% {opacity: 100%;}
+}
+.loadingStar3 {
+    animation: load 0.8s;
+    animation-iteration-count: infinite;
+    animation-delay: 600ms;
+}
+@keyframes load {
+    0% {opacity: 100%;}
+    25% {opacity: 30%;}
+    100% {opacity: 100%;}
+}
+/* === Navigation === */
+.offcanvas {
+    background-color: #F5C3C3;
+}
+.btn-primary {
+    background-color: #ED839D;
+    border-color: #ED839D;
+    box-shadow: 0px 0px;
+    border-radius: 10px;
+    height: 50px;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #ED839D;
+    border-color: #ED839D;
+    box-shadow: 5px 10px #A22A36;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+    background-color: #ED839D;
+    border-color: #ED839D;
+}
 
+/* === Tutorial Summary Buttons === */
+.btn-secondary {
+    background-color: #A22A36;
+    border-color: #A22A36;
+    box-shadow: 0px 0px;
+    border-radius: 20px;
+    height: 80px;
+    font-family: 'Poppins', sans-serif;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #ED839D;
+    border-color: #ED839D;
+    box-shadow: 8px 10px #A22A36;
+}
+.btn-check:focus+.btn-secondary, .btn-secondary:focus {
+    background-color: #ED839D;
+    border-color: #ED839D;
+    box-shadow: 8px 10px #A22A36;
+}
+.subNavItem {
+    font-family: 'Poppins', sans-serif;
+    padding: 0.5rem 0rem 0.5rem 2rem;
+    text-decoration: none;
+    color: #212529;
+}
+.subNavItem:hover {
+    color: #fff;
+    background-color: #ED839D;
+    border-radius: 5px;
+}
+/* === Circles === */
 #wrapBgCircles {       
     overflow: hidden;
     width: 100vw;
     height: 100vh;
     position: absolute;
 }
-
-#imageCirclesBG {
-    min-height: 120vh;
+/* === Buy Me A Coffee Button === */
+.bmc-btn-container {
+    position: absolute;
+    z-index: 20;
+    right: 50px;
+    bottom: 10px;
+}
+.bmc-btn {
+    font-size: 18px; 
+}
+/* === Center Images & Ordering === */
+#image8BallDarkBase, 
+#imageCirclesBG, 
+#image8BallShine, 
+#image8BallWhiteCircle, 
+#divWrapimage8BallWhiteCircle,
+#divSmallerMoveAreaWhiteCircle,
+#imgAskAQuestion,
+#imgClickToShake, 
+#divWrapImageCloud, 
+#image8BallDarkInnerCircle,
+#divWrapimage8BallResult,
+#image8BallBlueTriangle,
+#image8BallBubble1,
+#image8BallBubble2,
+#image8BallBubble3,
+#resizeContainer,
+#htmlResultText {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    position: absolute;
-    
+    position: fixed;            
 }
+/* Background */
+#imageCirclesBG {
+    min-height: 120vh; 
+    z-index: 1;       
+}
+/* Resize Container */
+#resizeContainer {
+    z-index: 10;
+}
+/* 8 Ball Base*/
+#image8BallDarkBase {
+    z-index: 4;  
+    max-height: 60vh;      
+}
+/* Inner 8 Ball */
+#image8BallWhiteCircle {
+    z-index: 4;
+    max-height: 30vh;
+    position: relative;     
+}
+#image8BallDarkInnerCircle {
+    top: -100%;    
+    z-index: 5;
+    max-height: 40vh;
+    position: relative;     
+}
+#divWrapimage8BallWhiteCircle {
+    z-index: 10;
+    width: 509px;
+    height: 509px;
+    max-height: 60vh;
+    max-width: 60vh;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#divSmallerMoveAreaWhiteCircle {
+    z-index: 10;
+    width: 409px;
+    height: 409px;
+    max-height: 40vh;
+    max-width: 40vh;    
+    border-radius: 50%;
+}
+/* Inner Blue Triangle */
+#image8BallBlueTriangle {
+    z-index: 6;
+    max-height: 35vh;    
+}
+/* Result Wrapper */
+#divWrapimage8BallResult {
+    z-index: 10;
+    width: 293px;
+    height: 293px;
+    max-height: 38vh;
+    max-width: 38vh;
+    overflow: hidden;
+    border-radius: 50%;
+}
+#htmlResultText {
+    z-index: 9;
+    max-width: 15vh;
+    font-size: 2.2vh;       
+}
+/* === Bubbles === */ 
+#image8BallBubble1{
+    z-index: 7;
+    max-height: 3vh;
+    position: relative;
+}
+#image8BallBubble2  {
+    z-index: 7;
+    max-height: 2.5vh;
+    position: relative;
+}
+#image8BallBubble3 {
+    z-index: 7;
+    max-height: 2vh;
+    position: relative;
+}
+/* 8 Ball Shine */
+#image8BallShine {
+    z-index: 20;
+    max-height: 60vh;  
+    overflow: hidden;  
+}
+/* Text */
+#imgAskAQuestion, #imgClickToShake {
+    z-index: 8;    
+    max-height: 90vh;        
+}
+/* Cloud */
+#divWrapImageCloud {
+    z-index: 2;
+    height: 965px;
+    max-height: 95vh;     
+    overflow: hidden;
+    width: 100vw;
+}
+#imageCloud1 {    
+    max-height: 95vh;    
+    position: relative;
+    animation-name: cloudFloat1;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    overflow: hidden;   
+    padding-top: 0%;
+}
+@keyframes cloudFloat1 {
+    0% {        
+        transform: skew(3deg, 3deg) scale(1.04) rotateY(3deg);
+        overflow: hidden;        
+    }
+    25% {        
+        transform: skew(-3deg, -3deg) scale(0.97) rotateZ(-3deg);
+        overflow: hidden;        
+    }
+    50% {        
+        transform: skew(5deg, 5deg) scale(1.04) rotateX(10deg); 
+        overflow: hidden;       
+    }
+    75% {        
+        transform: skew(-3deg, -3deg) scale(0.97) rotateZ(0deg);
+        overflow: hidden;
+    }    
+    100% {        
+        transform: skew(3deg, 3deg) scale(1.04) rotateY(3deg);  
+        overflow: hidden;      
+    }
+}
+
 /* Toast - Disclaimer */
 #divWrapToastTip {
     left: 50%;
@@ -49,5 +408,139 @@ body {
     opacity: 1;
 }
 
+/* Shake Animation */
+.shakeBall {
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
+}
+@keyframes shake {    
+    0% { top: 49%; left: 51%; transform: translate(-49%, -51%) rotate(0deg); }
+    10% { top: 49%; left: 48%; transform: translate(-49%, -48%) rotate(-1deg); }
+    20% { top: 47%; left: 50%; transform: translate(-47%, -50%p) rotate(1deg); }
+    30% { top: 53%; left: 52%; transform: translate(-53%, -52%) rotate(0deg); }
+    40% { top: 51%; left: 49%; transform: translate(-51%, -49%) rotate(1deg); }
+    50% { top: 49%; left: 52%; transform: translate(-49%, -52%) rotate(-1deg); }
+    60% { top: 47%; left: 51%; transform: translate(-47%, -51%) rotate(0deg); }
+    70% { top: 53%; left: 51%; transform: translate(-53%, -51%) rotate(-1deg); }
+    80% { top: 49%; left: 49%; transform: translate(-49%, -49%) rotate(1deg); }
+    90% { top: 51%; left: 52%; transform: translate(-51%, -52%) rotate(0deg); }
+    100% { top: 51%; left: 48%; transform: translate(-51%, -52%) rotate(-1deg); }
+  }
+
+/* Rotate White Ball Animation */
+.rotateWhiteBall {
+    animation: rotateWhite 0.8s;
+    animation-iteration-count: 1;
+}
+
+@keyframes rotateWhite {
+    0% { top: 50%; left: 50%; transform: translate(-50%, -50%);}
+    100% {top: 120%; left: 50%; transform: translateX(-50%);}
+}
+
+/* Rotate White Ball Animation */
+.rotateDarkBall {
+    animation: rotateDark 0.8s;
+    animation-iteration-count: 1;
+}
+
+@keyframes rotateDark {
+    0% { top: -50%; left: 50%; transform: translate(-50%, -50%);}
+    100% {top: 50%; left: 50%; transform: translate(-50%, -50%);}
+}
+
+/* Fade In Triangle Result */
+.fadeInTri {
+    animation: fadeInTriangle 2.5s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes fadeInTriangle {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Fade Out Triangle before shake */
+.fadeOutTri {
+    animation: fadeOutTriangle 1s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes fadeOutTriangle {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+/* === Bubble 1 Fade In === */
+.bubble1FadeIn {
+    animation: bubble1FadeIn 3s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes bubble1FadeIn {
+    0% { opacity: 0; transform: translate(0px, 0px)}
+    100% { opacity: 1; transform: translate(30px, 50px)}
+}
+
+/* === Bubble 2 Fade In === */
+.bubble2FadeIn {
+    animation: bubble2FadeIn 3s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes bubble2FadeIn {
+    0% { opacity: 0; transform: translate(0px, 0px)}
+    100% { opacity: 1; transform: translate(-30px, -25px)}
+}
+
+/* === Bubble 3 Fade In === */
+.bubble3FadeIn {
+    animation: bubble3FadeIn 3s;
+    animation-iteration-count: infinite;
+    transition-timing-function: ease-in-out;
+}
+
+@keyframes bubble3FadeIn {
+    0% { opacity: 0; transform: translate(0px, 0px)}
+    100% { opacity: 1; transform: translate(-20px, 40px)}
+}
+
+/* === Media Queries === */
+@media only screen and (max-width: 655px) {
+    #resizeContainer {
+        transform: scale(0.9);
+    }    
+    #imageCloud1 {
+        padding-top: 20%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #resizeContainer {
+        transform: scale(0.8);
+    }    
+    #imageCirclesBG {
+        min-height: 110vh; 
+    }
+}
+
+@media only screen and (max-width: 484px) {
+    #resizeContainer {
+        transform: scale(0.65);
+    }      
+    #imageCirclesBG {
+        min-height: 100vh; 
+    }
+}
+
+@media only screen and (max-width: 394px) {
+    #resizeContainer {
+        transform: scale(0.5);
+    }       
+}
 
 /* ==== Created by Naomi Justin ==== */

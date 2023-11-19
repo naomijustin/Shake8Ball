@@ -1,57 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Shake the 8 Ball | shake8ball.com</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    
-    <meta name="author" content="Naomi Justin">
-    <meta name="description" content="Need to make a quick decision? What will the 8 ball decide? Ask and shake to find out!">
-    <meta property="og:image" content="https://shake8ball.com/images/Shake8Ball_WebPreview.png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="427">
-    <meta property="og:url" content="https://shake8ball.com">
-    <meta property="og:type" content="website">
-    <meta name="theme-color" content="#F5C3C3" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#A22A36" media="(prefers-color-scheme: dark)">
-    <meta property="release" content="release/2022-08-29.1">
-    <meta property="config-environment" content="staging">
-
-    <title>Shake the 8 Ball | shake8ball.com</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">    
-
-
-    <!-- Vendors CSS -->
-    <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">
-
-    <!-- Vendors JS -->
-    <script src="../vendors/bootstrap-5.0.2-dist/js/bootstrap.bundle.min.js"></script>
-
-
-    <link rel="stylesheet" href="../css/style.css">
-    <script src="../js/script.js"></script>
-
-</head>
-<script>
+  <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>
+  <script src="../vendors/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+  <script>
     $(document).ready(function(){
-        var currentYear = new Date().getFullYear();
-        $('html').prepend('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
-        $('html').append('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
-        $('#modalCopyright').text('Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved.')
-    });    
+        $.get('../assets/head.html', function(data){                
+            $('head').append(data);                
+        });                            
+    });
+  </script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L4QJTKC0F2');
 </script>
-<body>
+<script>  
+    $(document).ready(function(){                                    
+      var currentYear = new Date().getFullYear();
+      $('html').prepend('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
+      $('html').append('<!-- Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved. -->');
+      $('#modalCopyright').text('Copyright © ' + currentYear + ' Naomi Justin. All Rights Reserved.')      
+    });        
+</script>
+<body style="background-color: #A10035;">
+  <div id="navPlaceholder"></div>
+  <!-- Loading View -->
+  <div id="loadingView" style="width: 100vw; height: 100vh; position: absolute; z-index: 40; background-color: #A10035;">
+    <div id="starsLoading" class="fadeInLoad">
+      <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+      <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+      <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+    </div>
+  </div>  
     <div id="wrap8BallContent">
-        <div id="wrapBgCircles">            
-            <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg">                        
+        <!-- 8 Ball, Text & Cloud -->
+        <div id="resizeContainer">                                
+            <img id="imgAskAQuestion" src="../images/AskAQuestion-Text.svg" alt="Ask a question">
+            <img id="imgClickToShake" src="../images/ClickToShake-Text.svg" alt="Click to shake">
+            <img id="image8BallShine" src="../images/8BallShine-InContext.svg" alt="8 Ball Shine" style="cursor: pointer;">            
+            <div id="wrap8Ball">
+                <div id="divWrapimage8BallWhiteCircle">
+                    <div id="divSmallerMoveAreaWhiteCircle">
+                        <img id="image8BallWhiteCircle" src="../images/8Ball-White-Circle.svg" alt="8 Ball White Circle">
+                    </div>
+                    <div id="htmlResultText" class="text-center"></div>                                        
+                    <img id="image8BallBlueTriangle" src="../images/8Ball-BlueTriangle.svg" style="opacity: 0;" alt="8 Ball Blue Triangle">
+                    <img id="image8BallDarkInnerCircle" src="../images/8Ball-BlackInner-Circle.svg" class="d-none" alt="8 Ball Dark Inner Circle">
+                </div>
+                <div id="divWrapimage8BallResult">
+                    <img id="image8BallBubble1" src="../images/8Ball-Bubble.svg" alt="8 Ball Bubble" style="opacity: 0;">
+                    <img id="image8BallBubble2" src="../images/8Ball-Bubble.svg" alt="8 Ball Bubble" style="opacity: 0;">
+                    <img id="image8BallBubble3" src="../images/8Ball-Bubble.svg" alt="8 Ball Bubble" style="opacity: 0;">
+                </div>                                    
+                <img id="image8BallDarkBase" src="../images/External8Ball.svg" alt="8 Ball Base">                                                                                                                      
+            </div>            
         </div>
+        <!-- Cloud -->        
+        <div id="divWrapImageCloud" class="d-flex justify-content-center">
+          <img id="imageCloud1" src="../images/Cloud.svg" alt="Cloud">                                             
+        </div>                                      
+        <!-- Help Icon -->
+        <div id="toastHelpIcon" class="position-fixed" style=" padding: 10px; top: 0px; right: 0px; color: #FFFFFF; z-index: 9; opacity: 0.7; cursor: pointer;">
+          <img src="images/help_icon_white.svg" alt="Help" title="Help Guide" style="max-width: 5vh; max-height: 5vh;">
+        </div>                
+        <!-- Mobile - Bottom Horizontal Banner Ad -->
+        <div class="position-fixed d-block mx-auto py-0 my-0" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '61efe3af561fbae593140c15cff9a275',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 320,
+              'params' : {}
+            };
+            document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+          </script>
+        </div>
+        <!-- Background -->
+        <div id="wrapBgCircles" >            
+            <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+        </div>
+    </div>
+    <!-- Screen Reader Only -->
+    <div class="sr-only d-none">
+        <h3>Ask and shake the 8 Ball</h3>
+        <p>Need to make a decision? Or possibly looking for a bit of retro fun? Look no further, the 8 ball oracle is here! Simply ask a Yes or No question, and click on the ball to see the result. 
+            Move your mouse around to see the ball animate, or click to see it rotate and display one of the classic results from the original 8 ball novelty toy.</p>
     </div>
     <!-- Disclaimer Toast -->
     <div id="divWrapToastTip" style="position: absolute; z-index: 30;">
@@ -59,75 +105,45 @@
             <div class="d-flex">
               <div class="toast-body">
                <b>Consent</b><br />              
-               By using our website, you hereby consent to our disclaimer and agree to its terms, which can be viewed <span data-bs-toggle="modal" data-bs-target="#modalDisclaimer" style="color: #A10035; cursor: pointer;">here</span>
+               By using our website, you hereby consent to our disclaimer and agree to its terms, which can be viewed <a href="../info/terms.html" target="_blank" style="color: #A10035; text-decoration: none; cursor: pointer; font-weight: bold;">here</a>
               </div>
               <button type="button" class="btn-close btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
           </div>    
     </div>
-    <!-- Help Icon -->
-    <div id="toastHelpIcon" class="position-absolute" style="bottom: 10px; right: 10px; color: #FFFFFF; z-index: 9; opacity: 0.7; cursor: pointer;">
-      <img src="images/info_icon_white.svg" alt="Help Icon" title="Help Guide" style="max-width: 5vh; max-height: 5vh;">
-  </div>
-  <!-- How To Toast -->
-  <div id="divWrapToastHowTo" style="position: absolute; z-index: 30;">
-    <div id="toastHowToPrompt" class="toast align-items-center text-dark border-0 p-2" style="background-color: #FFFFFF; border-radius: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="d-flex">
-            <div class="toast-body">
-              <b>How To Play</b><br />              
-              <img src="images/starCursor.svg" style="width: 30px;">Not sure where to start? Click <span data-bs-toggle="modal" data-bs-target="#modalHowTo" style="color: #A10035; cursor: pointer; font-weight: bold;">here</span> for the guide!
-            </div>
-            <button type="button" class="btn-close btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-        </div>
-      </div>    
-  </div>
-    <!-- Modal of disclaimer -->
-    <div id="modalDisclaimer" class="modal" tabindex="-1">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Disclaimer for Shake8Ball.com</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <p><small class="text-muted"><i>Last Updated: 23 August 2022</i></small></p>
-                <p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at hello@shake8ball.com. Our Disclaimer was generated with the help of the <a href="https://www.disclaimergenerator.net/" style="text-decoration: none;">Free Disclaimer Generator</a>.</p>                
-                <h5>Disclaimers for Shake 8 Ball</h5>                                
-                <p>All the information on this website - Shake8Ball.com - is published in good faith and for general information purposes only. Shake 8 Ball does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website (Shake 8 Ball), is strictly at your own risk. Shake 8 Ball will not be liable for any losses and/or damages in connection with the use of our website.</p>                
-                <p>From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites. Site owners and content may change without notice and may occur before we have the opportunity to remove a link which may have gone 'bad'.</p>                
-                <p>Please be also aware that when you leave our website, other sites may have different privacy policies and terms which are beyond our control. Please be sure to check the Privacy Policies of these sites as well as their "Terms of Service" before engaging in any business or uploading any information.</p>                
-                <p>This web site is not endorsed by, directly affiliated with, maintained, authorised, or sponsored by any other companies. The use of any trade name or trademark is for identification and reference purposes only and does not imply any association with the trademark holder of their product brand.</p>                
-                <p>This web site simulates the "Magic Eight Ball" toy, a registered trademark of Mattel Inc. The "Magic Eight Ball" trademark and various 8 Ball answers are used without permission of Mattel Inc. Mattel Inc. is neither affiliated with this site, nor with authors of this site.</p>                
-                <h5>Copyright</h5>
-                <p id="modalCopyright"></p>
-                <h5>Consent</h5>                
-                <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>                
-                <h5>Update</h5>
-                <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>                
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Modal of How To -->
-    <div id="modalHowTo" class="modal" tabindex="-1">
+    <!-- How To Toast -->
+    <div id="divWrapToastHowTo" style="position: absolute; z-index: 10; display: none;">
+        <div id="toastHowToPrompt" class="toast align-items-center text-dark border-0 p-2" style="background-color: #FFFFFF; border-radius: 30px;" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                  <b>How To Play</b><br />              
+                  <img src="images/starCursor.svg" style="width: 30px;">Not sure where to start? Click <span data-bs-toggle="modal" data-bs-target="#modalHowTo" style="color: #A10035; cursor: pointer; font-weight: bold;">here</span> for the guide!
+                </div>
+                <button type="button" class="btn-close btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+          </div>    
+    </div>
+
+    <!-- Modal of How To -->
+    <div id="modalHowTo" class="modal" tabindex="-1" style="display: none;">
         <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">How To Guide</h5>
+          <div class="modal-content" style="background-color: #FFC4C4; border-radius: 30px;">
+            <div class="modal-header" style="border-bottom: 1px solid #FF869E;">
+              <h1 class="modal-title py-0">How To Play</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <h5>How to play</h5>
+              <h2>Guide</h2>
                 <p>Shake the 8 ball (inspired by the Mattel toy 'Magic 8 Ball') is a question/answer based game.</p>
-                <ol>
-                  <li>To play, think of a question that results in a 'Yes' or 'No' answer.</li>
-                  <li>Click or Tap anywhere on the 8 ball to shake.</li>
-                  <li>The 8 ball will shake and rotate to reveal the answer.</li>
-                    <li>If you received a non-committal answer, if you think of another question or if you simply don't like the answer, click the anywhere on 8 ball to shake and play again.</li>
-                    <li>Remember, this is a game, you are in control of your own decisions.</li>
-                </ol>
-              <h5>Questions</h5>
+                  <ol>
+                    <li class="py-2">To play, think of a question that results in a 'Yes' or 'No' answer.</li>
+                    <li class="py-2">Click or Tap anywhere on the 8 ball to shake.</li>
+                    <li class="py-2">The 8 ball will shake and rotate to reveal the answer.</li>
+                    <li class="py-2">If you received a non-committal answer, if you think of another question or if you simply don't like the answer, click the anywhere on 8 ball to shake and play again.</li>
+                    <li class="py-2">Remember, this is a game, you are in control of your own decisions.</li>
+                  </ol>                   
+              <h2>Questions</h2>
               <p>Think of a question to ask the 8 ball. It could be something that you are trying to decide on or could just be for fun. To get you started, some example questions could include:</p>
               <ul>
                 <li>Should I eat a burger for dinner?</li>
@@ -138,14 +154,16 @@
                 <li>Should I accept the job offer?</li>
                 <li>Will I ever learn to love again?</li>
                 <li>Should I buy a croissant?</li>
-                <li>Will it rain tomorrow?</li>                
+                <li>Will it rain tomorrow?</li>
               </ul>
-              <div class="pTip">
+              <div class="pTip" style="background-color: #FFFFFF70">
                 <b>Tip!</b> Always ask a 'Yes' or 'No' question - this ensures that the answers are in the right context. Remember, this is a game, you are in control of your own decisions.
-              </div>                  
+              </div>               
             </div>
           </div>
         </div>
       </div>
 </body>
+<script src="../js/index.js?v=20221224"></script>
 </html>
+<!-- Created by Naomi Justin -->

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script type="text/javascript" src="../vendors/jquery/js/jquery-3.6.0.min.js"></script>        
+        <link rel="stylesheet" href="../vendors/bootstrap-5.0.2-dist/css/bootstrap.min.css">  
+        <link rel="stylesheet" href="../css/style.css">
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Shrikhand&display=swap" rel="stylesheet">
+        <script>
+            $(document).ready(function(){
+                $.get('../assets/head.html', function(data){                
+                    $('head').append(data);                
+                });                            
+            });
+        </script>        
+    </head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4QJTKC0F2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-L4QJTKC0F2');
+    </script>    
+    <body style="background-color: #A10035;">
+        <!-- Navigation -->
+        <div id="navPlaceholder"></div>
+        <!-- Loading View -->
+        <div id="loadingView" style="width: 100vw; height: 100vh; position: fixed; z-index: 30; background-color: #A10035;">
+            <div id="starsLoading" class="fadeInLoad">
+            <img id="loaderStar1" class="loadingStar1" src="../images/star1.svg" alt="Loading" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar2" class="loadingStar2" src="../images/star2.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            <img id="loaderStar3" class="loadingStar3" src="../images/star3.svg" style="top: 50%; left: 50%; transform: translate(-50%, -50%); position: absolute;">
+            </div>
+        </div>
+        <!-- Contact Form -->
+        
+            <div class="bgFormWrapper">
+                <div class="tutorialForm my-3 my-sm-5 py-3 px-4">
+                    <article>
+                        <h1 class="text-center py-2">1: The Idea</h1>
+                        <div>
+                            <p>For deciding to make this site, I wanted to create something that was both aesthetic, but also functional. I decided to make a game, and the original Magic 8 Ball I felt was perfect as it was simple in terms of its functionality, but also had potential in terms of creating a specific 'look'.</p>                    
+                            <p>I wanted to create something that incorporated multiple animations that I could play around with, but also to not take away from the user experience in terms of not creating cognitive overload.</p>
+                            <h2>Designing the UX (User Experience)</h2>
+                            <p>I started off in Figma with a loose idea in mind, wanting to have the ball shake and display results.</p>
+                            <p>I then added in small elements to add to the overall feel of the experience, such as allowing the white circle and 8 inside the 8 ball to create the illusion of rotating by following the mouse movement on the page.</p>
+                            <p>I also wanted a magical cloud underneath to subtly flow underneath the ball to add to the 'mystical' feel of the magic 8 ball.</p>
+                            <p>Another addition was to have the ball rotate 180 degrees on the first shake to the back face of the ball to display the result, and then to stay on this back face for any additional shakes after the first.</p>
+                            <p>And finally, in the actual display of the results, I wanted the triangle that displayed the text to fade in from black, and to also have bubbles move at random locations to mimic the original 8 ball being shaked a lot and forming these bubbles in the interior liquid.</p>
+                            <h2>Designing the UI (User Interface)</h2>
+                            <p>I started off by going through different colour palette generator sites such as <a href="https://coolors.co/"  target="_blank" style="text-decoration: none;">coolors.co</a> and <a href="https://colorhunt.co/" target="_blank" style="text-decoration: none;">colorhunt.co</a> to get an idea of the type of palette that I wanted that would ultimately determine the feel of the overall magic 8 ball site.</p>
+                            <p>After looking at different potential palettes, I decided on an overall warm toned palette, including a deep maroon red, pinks and yellow/beige with a contrasting cool tone of a medium purple for the cloud and other small elements in the site.</p>
+                            <figure class="text-center">
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-1_Palette.svg" alt="Image of chosen colour palette for the site" style="border: 3px solid white;">
+                            </figure>
+                            <p>I then started to play around with ideas for the actual design of the site. I first created some background that included elements that imitated organic shapes of wispy clouds, curtains, waves however it did not feel balanced. Finally, I decided on creating a circular background, creating multiple layers using the main warm tones in the palette, however I decided that it felt a bit too circular. After some additional tweaks, I decided cutting off the top and bottom of the multi layered background would allow for the circular background to compliment the 8 ball's shape, but would not become too repetitive in the feel and not create too much blank space on the left and right of the index page.</p>
+                            <p>I still felt like something was missing, and decided to create some magic stars out of the warm tone colours on the palette. As these stars were the same colours of the background, when adding them into the background, I needed to make sure that they were either positioned very specifically so that the stars would not overlay the same colour when changing to smaller or larger screen size. After considering how to do this, I decided to position them in the correct position in the original design and then export them as part of the background so that I did not need to create specific media queries for each set of stars.</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-2_Background.png" alt="Designed background image in Figma showing stars">
+                            </figure>
+                            <p>For the magical cloud, I wanted to create an organic shape that would slowly fade into nothing at the base to add to the effect that it was a wispy cloud, rather than a static moving object on the page.</p>
+                            <p>In Figma, I used the pen tool to create an organic vector shape and used the gradient tool to create a semi opaque to almost fully transparent purple transition vertically in the shape to create the impression of a cloud slowly fading out as it moves.</p>
+                            <figure>
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-3_CloudAdded.png" alt="Designed background image in Figma with stars and cloud">
+                            </figure>
+                            <p>Then, for the 8 Ball itself, I wanted to create a gradient that would illustrate a 3D object to allow for the white ball that would move to appear as though the ball was rotating.</p>
+                            <p>I created a diagonal gradient that would transition from cool tone for the shadow, warm tone for the highlights and the base colour of a dark grey in the centre to create the 3 dimensional appearance. Then to add to the effect, I also created a highlight that would start vertically at semi opaque to mostly transparent on it's own separate layer so that when the white circle with the 8 inside would move, it would be able to travel under the shine - again to add to the effect of the entire ball being a 3D object that was rotating.</p>
+                            <figure class="text-center">
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-4_8BallAdded.png" alt="Designed background image in Figma with stars, cloud, 8 ball and shine">
+                            </figure>
+                            <p>The next element to create was the back face of the magic 8 ball that would display the results after a user shaked the ball.</p>
+                            <p>To imitate the idea of the ball being filled with dark blue ink, in Figma, I created a dark circle that was almost black and created a thick stroke around this in dark grey to give the effect of the plastic indenting into the ball and then creating a screen for which the result would be displayed behind.</p>
+                            <figure class="text-center">
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-5_8BallBackBase.png" alt="Designed base of backface of 8 ball in Figma showing a black circle with grey stroke">
+                            </figure>
+                            <p>Now was to create the triangle (originally a D20 dice inside) that would appear out of the ink that would then display the answer or result to the question asked.</p>
+                            <p>I created a medium blue triangle to imitate the dice being submerged in blue ink, and a slightly lighter blue for the text that would be imprinted on the dice.</p>
+                            <p>I looked through different versions of the 8 balls and what type of font for the text that was used, and ultimately decided to choose the font Roboto, capitalised in a medium weight.</p>
+                            <figure class="text-center">
+                                <img class="tutorialImage" src="../images/tutorials/article1/Article1-6_TriangleResultAdded.png" alt="Designed 8 ball image in Figma with triangle and text displaying result">
+                            </figure>
+                            <p>Finally, the last piece to create for the back face of the 8 ball was the bubbles. I personally wanted to include these as it brought back the feeling of nostalgia, especially the magic 8 ball would be shaken so hard that it would be almost impossible to read the text result as it would be so obscured by the inky bubbles.</p>
+                            <p>I created a single bubble using the existing range of blue colours used for the back face, creating a left leaning diagonal gradient with a sharp shine at the top of the bubble and a slow fade to a lighter blue at the base of the bubble to illustrate a bubble and watery effect.</p>
+                            <p>This single bubble would later be exported and then the same bubble would be added multiple times at different scales that would move and animate when revealing the text result.</p>
+                            <p>Now that creating the base elements are complete, the next step is to start adding the images into the index html page.</p>
+                            <div class="row my-3">
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnBack" class="btn btn-primary mt-2 mb-sm-0 mb-2"><img src="../images/tutorials/general/arrow-left-solid.svg" alt="Left Arrow" style="width: 20px;">&emsp;Go to introduction</button>
+                                </div>                                        
+                                <div class="col-sm-6 d-grid">
+                                    <button type="button" id="btnNext" class="btn btn-primary mt-2">Go to next step&emsp;<img src="../images/tutorials/general/arrow-right-solid.svg" alt="Right Arrow" style="width: 20px;"></button>
+                                </div>
+                            </div>                                                          
+                        </div>                        
+                    </article>
+                </div>                
+            </div>
+        
+        <div id="wrap8BallContent">
+            <!-- Desktop/Tablet - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-none d-md-block mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                atOptions = {
+                    'key' : '3a81068b630aa4962778cf35fc916fa1',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                };
+                document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/3a81068b630aa4962778cf35fc916fa1/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Mobile - Bottom Horizontal Banner Ad -->
+            <div class="position-fixed d-block d-sm-block d-md-none mx-auto" style="bottom: -10px; z-index: 9; right: 50%; transform: translateX(50%);">
+                <script type="text/javascript">
+                    atOptions = {
+                    'key' : '61efe3af561fbae593140c15cff9a275',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                    };
+                    document.write('<scr' + 'ipt type="text/javascript" src="http' + (location.protocol === 'https:' ? 's' : '') + '://www.effectivecreativeformat.com/61efe3af561fbae593140c15cff9a275/invoke.js"></scr' + 'ipt>');
+                </script>
+            </div>
+            <!-- Background -->
+            <div id="wrapBgCircles" >            
+                <img id="imageCirclesBG" src="../images/BGCirclesCombined.svg" alt="Circular Background">                        
+            </div>
+        </div>
+    </body>
+    <script src="../js/tutorials/tutorial-1.js?v=20221113"></script>
+</html>
